@@ -45,9 +45,27 @@ export const Panel = styled.div`
   margin-top: 10px;
   padding: 30px;
 
-  thead {
+  table {
+    width: 100%;
     background-color: #ffffff;
-    border: 1px solid gray;
+    border-collapse: collapse;
+    border-width: 1px;
+    border-color: #d9d9d9;
+    border-style: solid;
+    color: #000000;
+  }
+
+  table td,
+  table th {
+    border-width: 1px;
+    border-color: #d9d9d9;
+    border-style: solid;
+    padding: 5px;
+  }
+
+  table thead,
+  table tfoot {
+    background-color: #f7f7f7;
   }
 `;
 
@@ -66,4 +84,22 @@ export const PanelAction = styled.div`
 export const Error = styled.small`
   display: block;
   color: red;
+`;
+
+export const Pagination = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  #prev,
+  #next,
+  #page {
+    padding: 2px 5px;
+    border: 1px solid #d9d9d9;
+  }
 `;

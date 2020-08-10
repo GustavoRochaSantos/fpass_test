@@ -1,5 +1,12 @@
 import React, { useEffect, useState, FormEvent } from 'react';
-import { Container, Panel, Button, Error, PanelAction } from './styles';
+import {
+  Container,
+  Panel,
+  Button,
+  Error,
+  PanelAction,
+  Pagination,
+} from './styles';
 import DB from '../../database';
 import ClientFields from '../../database/interface';
 import { FiEdit, FiDelete } from 'react-icons/fi';
@@ -26,6 +33,8 @@ const ClientList: React.FC = () => {
   const [errors, setErrors] = useState<string[]>([]);
   const [modalMode, setModalMode] = useState<string>('');
   const [modalTitle, setModalTitle] = useState<string>('');
+  const [formAtualPage, setFormAtualPage] = useState<number>(1);
+  const [formTotalPage, setFormTotalPage] = useState<number>(1);
 
   useEffect(() => {
     resetAll();
@@ -197,6 +206,32 @@ const ClientList: React.FC = () => {
               </tr>
             ))}
           </tbody>
+          <tfoot>
+            <tr>
+              <td colSpan={9}>
+                <Pagination>
+                  <span>{`Página ${formAtualPage} de ${formTotalPage}`}</span>
+                  <span>
+                    <a id="prev" href="#">
+                      Ant
+                    </a>
+                    <a id="page" href="#">
+                      1
+                    </a>
+                    <a id="page" href="#">
+                      2
+                    </a>
+                    <a id="page" href="#">
+                      3
+                    </a>
+                    <a id="next" href="#">
+                      Próx.
+                    </a>
+                  </span>
+                </Pagination>
+              </td>
+            </tr>
+          </tfoot>
         </table>
       </Panel>
 
@@ -222,6 +257,14 @@ const ClientList: React.FC = () => {
             defaultValue={editFormData.name}
             InputChange={handleFieldInputChange}
             required
+          />
+          <Field
+            required
+            label="Data Nascto"
+            id="birtday"
+            type="date"
+            defaultValue={editFormData.birtday}
+            InputChange={handleFieldInputChange}
           />
           <Field
             required
