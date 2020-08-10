@@ -1,6 +1,7 @@
 import React, { FormEvent } from 'react';
 import { Container } from './style';
 
+// -- Interface de parametros adicionais.
 interface AddedProps {
   field?: string;
   id: string;
@@ -26,6 +27,7 @@ const Field: React.FC<AddedProps> = props => {
           placeholder={props.placeholder}
           onChange={props.TextAreaChange}
           maxLength={300}
+          rows={10}
         />
       ) : (
         <input

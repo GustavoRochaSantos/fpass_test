@@ -4,6 +4,11 @@ interface ButtonProps {
   action?: string;
   cancel?: boolean;
 }
+
+interface PaginationItemProps {
+  actual?: boolean;
+}
+
 export const Container = styled.div`
   padding: 30px;
 `;
@@ -67,6 +72,8 @@ export const Panel = styled.div`
   table tfoot {
     background-color: #f7f7f7;
   }
+
+  
 `;
 
 export const PanelAction = styled.div`
@@ -91,6 +98,10 @@ export const Pagination = styled.div`
   justify-content: space-between;
   align-items: center;
 
+  div{
+    background-color:#fff;
+  }
+
   a {
     color: #000;
     text-decoration: none;
@@ -101,5 +112,9 @@ export const Pagination = styled.div`
   #page {
     padding: 2px 5px;
     border: 1px solid #d9d9d9;
+  }
+
+  a.actualPage{ 
+    color:red
   }
 `;

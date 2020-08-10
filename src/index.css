@@ -11,7 +11,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-input {
+input, textarea {
   margin-left: 10px;
   border: 1px solid #7a868c;
   border-top: 0px;
@@ -19,7 +19,7 @@ input {
   border-right: 0px;
   padding: 4px;
 }
-input:focus {
+input:focus, textarea:focus {
     border: 1px solid red;
     border-top: 0px;
     border-left: 0px;
@@ -27,7 +27,7 @@ input:focus {
 
 }
 
-input, button, img{
+input, button, textarea, img{
   outline: 0;
 }
 
